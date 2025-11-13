@@ -160,10 +160,10 @@ export function SimpleTemplateEditor({ template }: SimpleTemplateEditorProps) {
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold text-black">{template.name}</h2>
           <Link 
-            href="/templates" 
+            href="/" 
             className="text-sm text-blue-600 hover:text-blue-700"
           >
-            ← Back to Templates
+            ← Back to Home
           </Link>
         </div>
         <p className="text-sm text-gray-600 mb-6">{template.description}</p>
@@ -180,7 +180,7 @@ export function SimpleTemplateEditor({ template }: SimpleTemplateEditorProps) {
                   onChange={(e) => handleFieldChange(field.id, e.target.value)}
                   placeholder={field.placeholder}
                   rows={4}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 />
               ) : field.type === 'color' ? (
                 <div className="flex items-center space-x-2">
@@ -195,7 +195,7 @@ export function SimpleTemplateEditor({ template }: SimpleTemplateEditorProps) {
                     value={fieldValues[field.id] || ''}
                     onChange={(e) => handleFieldChange(field.id, e.target.value)}
                     placeholder={field.placeholder}
-                    className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                   />
                 </div>
               ) : (
@@ -204,7 +204,7 @@ export function SimpleTemplateEditor({ template }: SimpleTemplateEditorProps) {
                   value={fieldValues[field.id] || ''}
                   onChange={(e) => handleFieldChange(field.id, e.target.value)}
                   placeholder={field.placeholder}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 />
               )}
             </div>
@@ -232,7 +232,7 @@ export function SimpleTemplateEditor({ template }: SimpleTemplateEditorProps) {
                         value={fieldValues[field.id] || ''}
                         onChange={(e) => handleFieldChange(field.id, e.target.value)}
                         placeholder={field.placeholder}
-                        className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                       />
                     </div>
                   ) : (
@@ -241,7 +241,7 @@ export function SimpleTemplateEditor({ template }: SimpleTemplateEditorProps) {
                       value={fieldValues[field.id] || ''}
                       onChange={(e) => handleFieldChange(field.id, e.target.value)}
                       placeholder={field.placeholder}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                     />
                   )}
                 </div>

@@ -8,19 +8,9 @@ export default function EditorPage() {
   const [selectedTemplate, setSelectedTemplate] = useState<typeof simpleTemplates[0] | null>(null);
 
   useEffect(() => {
-    // Check for selected template from localStorage
-    const selectedTemplateId = localStorage.getItem('selectedSimpleTemplate');
-    if (selectedTemplateId) {
-      const template = simpleTemplates.find(t => t.id === selectedTemplateId);
-      if (template) {
-        setSelectedTemplate(template);
-      }
-      // Clear the selection after loading
-      localStorage.removeItem('selectedSimpleTemplate');
-    } else {
-      // Default to first template
-      setSelectedTemplate(simpleTemplates[0]);
-    }
+    // Always load the Kick It California template (the main one)
+    const kickItTemplate = simpleTemplates.find(t => t.id === 'kick-it-california') || simpleTemplates[0];
+    setSelectedTemplate(kickItTemplate);
   }, []);
 
   if (!selectedTemplate) {

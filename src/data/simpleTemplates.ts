@@ -564,19 +564,22 @@ export const simpleTemplates: SimpleTemplate[] = [
               .border-brand-orange { border-color: #f26722; }
               .bg-brand-blue { background-color: #003b5c; }
               
-              /* 
-               * Exact flyer dimensions for professional printing:
-               * At 72 DPI: 612 x 792 pixels (8.5" x 11") - screen display
-               * At 96 DPI: 816 x 1056 pixels (8.5" x 11") - high-res screen
-               * At 300 DPI: 2550 x 3300 pixels (8.5" x 11") - print quality
-               * 
-               * CSS uses physical inches for print, pixels for screen
-               */
+              /* Custom styles to match the PDF */
+              body {
+                  font-family: 'Inter', sans-serif;
+                  background-color: #f3f4f6; /* bg-gray-100 */
+              }
+              
+              /* Define the custom colors from the PDF */
+              .text-brand-blue { color: #003b5c; }
+              .text-brand-orange { color: #f26722; }
+              .border-brand-orange { border-color: #f26722; }
+              .bg-brand-blue { background-color: #003b5c; }
+              
+              /* Custom styles for 8.5x11 layout */
               .flyer-page {
-                  width: 612px;
-                  height: 792px;
-                  max-width: 612px;
-                  max-height: 792px;
+                  width: 8.5in;
+                  height: 11in;
                   margin-top: 2rem;
                   margin-bottom: 2rem;
                   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -595,28 +598,6 @@ export const simpleTemplates: SimpleTemplate[] = [
                   flex-shrink: 0;
               }
 
-              /* High DPI screens (96 DPI equivalent) */
-              @media (min-resolution: 96dpi) and (max-resolution: 191dpi) {
-                  .flyer-page {
-                      width: 816px;
-                      height: 1056px;
-                      max-width: 816px;
-                      max-height: 1056px;
-                  }
-              }
-              
-              /* Very high DPI screens (300 DPI equivalent) */
-              @media (min-resolution: 192dpi) {
-                  .flyer-page {
-                      width: 2550px;
-                      height: 3300px;
-                      max-width: 2550px;
-                      max-height: 3300px;
-                      /* Scale down font sizes proportionally for ultra-high DPI */
-                      font-size: 0.3em;
-                  }
-              }
-
               @media print {
                   body {
                       background-color: #ffffff !important;
@@ -626,10 +607,8 @@ export const simpleTemplates: SimpleTemplate[] = [
                       print-color-adjust: exact;
                   }
                   .flyer-page {
-                      width: 8.5in !important;
-                      height: 11in !important;
-                      max-width: 8.5in !important;
-                      max-height: 11in !important;
+                      width: 100%;
+                      height: 100%;
                       margin: 0;
                       box-shadow: none;
                       border-radius: 0;
