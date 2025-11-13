@@ -24,7 +24,9 @@ export function FlyerCanvas({
 
   const handleMouseDown = useCallback((e: React.MouseEvent, elementId: string) => {
     e.stopPropagation();
-    const element = flyerData.customElements.find(el => el.id === elementId);
+    // Find element in either template or custom elements
+    const element = flyerData.customElements.find(el => el.id === elementId) ||
+                    flyerData.template.elements.find(el => el.id === elementId);
     if (!element) return;
 
     setIsDragging(true);
@@ -33,7 +35,7 @@ export function FlyerCanvas({
       y: e.clientY - element.y
     });
     onSelectElement(elementId);
-  }, [flyerData.customElements, onSelectElement]);
+  }, [flyerData.customElements, flyerData.template.elements, onSelectElement]);
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     if (!isDragging || !selectedElement) return;
@@ -66,11 +68,13 @@ export function FlyerCanvas({
       onMouseUp={handleMouseUp}
       onClick={handleCanvasClick}
     >
-      {/* Template elements (non-editable) */}
+      {/* Template elements (editable) */}
       {flyerData.template.elements.map((element) => (
         <div
           key={element.id}
-          className="absolute pointer-events-none"
+          className={`absolute cursor-move border-2 ${
+            selectedElement === element.id ? 'border-blue-500 bg-blue-50' : 'border-transparent'
+          } hover:border-blue-300`}
           style={{
             left: element.x,
             top: element.y,
@@ -78,12 +82,43 @@ export function FlyerCanvas({
             height: element.height,
             ...element.style
           }}
+          onMouseDown={(e) => handleMouseDown(e, element.id)}
         >
           {element.type === 'text' && (
-            <span>{element.content}</span>
+            <div 
+              contentEditable
+              suppressContentEditableWarning
+              className="w-full h-full outline-none p-2 whitespace-pre-line"
+              style={{ 
+                fontSize: element.style?.fontSize || 16,
+                fontWeight: element.style?.fontWeight || 'normal',
+                color: element.style?.color || '#000000',
+                lineHeight: '1.4'
+              }}
+              onBlur={(e) => {
+                onUpdateElement(element.id, { content: e.target.textContent || '' });
+              }}
+            >
+              {element.content}
+            </div>
           )}
           {element.type === 'image' && element.src && (
             <img src={element.src} alt="" className="w-full h-full object-cover" />
+          )}
+          {element.type === 'shape' && (
+            <div 
+              className="w-full h-full"
+              style={{ 
+                backgroundColor: element.style?.backgroundColor || '#3B82F6',
+                borderRadius: element.style?.borderRadius || 0
+              }}
+            />
+          )}
+          
+          {selectedElement === element.id && (
+            <div className="absolute -top-8 left-0 bg-gray-800 text-white text-xs px-2 py-1 rounded">
+              Template Element (Click to edit text)
+            </div>
           )}
         </div>
       ))}
@@ -108,8 +143,13 @@ export function FlyerCanvas({
             <div 
               contentEditable
               suppressContentEditableWarning
-              className="w-full h-full outline-none"
-              style={{ fontSize: element.style?.fontSize || 16 }}
+              className="w-full h-full outline-none p-2 whitespace-pre-line"
+              style={{ 
+                fontSize: element.style?.fontSize || 16,
+                fontWeight: element.style?.fontWeight || 'normal',
+                color: element.style?.color || '#000000',
+                lineHeight: '1.4'
+              }}
               onBlur={(e) => onUpdateElement(element.id, { content: e.target.textContent || '' })}
             >
               {element.content}

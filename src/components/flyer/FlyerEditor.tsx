@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FlyerCanvas } from './FlyerCanvas';
 import { ToolPanel } from './ToolPanel';
 import { FlyerData, FlyerElement } from '@/types/flyer';
+import { templates } from '@/data/templates';
 
 interface FlyerEditorProps {
   initialData?: FlyerData;
@@ -23,6 +24,22 @@ export function FlyerEditor({ initialData }: FlyerEditorProps) {
     }
   );
 
+  useEffect(() => {
+    // Check for selected template from localStorage
+    const selectedTemplateId = localStorage.getItem('selectedTemplate');
+    if (selectedTemplateId) {
+      const template = templates.find(t => t.id === selectedTemplateId);
+      if (template) {
+        setFlyerData({
+          template,
+          customElements: []
+        });
+      }
+      // Clear the selection after loading
+      localStorage.removeItem('selectedTemplate');
+    }
+  }, []);
+
   const [selectedElement, setSelectedElement] = useState<string | null>(null);
 
   const addElement = (element: Omit<FlyerElement, 'id'>) => {
@@ -38,12 +55,31 @@ export function FlyerEditor({ initialData }: FlyerEditorProps) {
   };
 
   const updateElement = (id: string, updates: Partial<FlyerElement>) => {
-    setFlyerData(prev => ({
-      ...prev,
-      customElements: prev.customElements.map(el =>
-        el.id === id ? { ...el, ...updates } : el
-      )
-    }));
+    setFlyerData(prev => {
+      // Check if it's a template element
+      const isTemplateElement = prev.template.elements.some(el => el.id === id);
+      
+      if (isTemplateElement) {
+        // Update template element
+        return {
+          ...prev,
+          template: {
+            ...prev.template,
+            elements: prev.template.elements.map(el =>
+              el.id === id ? { ...el, ...updates } : el
+            )
+          }
+        };
+      } else {
+        // Update custom element
+        return {
+          ...prev,
+          customElements: prev.customElements.map(el =>
+            el.id === id ? { ...el, ...updates } : el
+          )
+        };
+      }
+    });
   };
 
   const deleteElement = (id: string) => {
@@ -60,7 +96,10 @@ export function FlyerEditor({ initialData }: FlyerEditorProps) {
     <div className="flex h-screen bg-gray-100">
       <ToolPanel 
         onAddElement={addElement}
-        selectedElement={selectedElement ? flyerData.customElements.find(el => el.id === selectedElement) || null : null}
+        selectedElement={selectedElement ? 
+          flyerData.customElements.find(el => el.id === selectedElement) || 
+          flyerData.template.elements.find(el => el.id === selectedElement) || 
+          null : null}
         onUpdateElement={updateElement}
       />
       <div className="flex-1 flex items-center justify-center p-8">
