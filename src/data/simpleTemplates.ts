@@ -124,6 +124,13 @@ export const simpleTemplates: SimpleTemplate[] = [
         type: 'color',
         placeholder: '#f8fafc',
         defaultValue: '#f8fafc'
+      },
+      {
+        id: 'text_color',
+        label: 'Main Text Color',
+        type: 'color',
+        placeholder: '#1f2937',
+        defaultValue: '#1f2937'
       }
     ],
     htmlTemplate: `
@@ -168,6 +175,11 @@ export const simpleTemplates: SimpleTemplate[] = [
           margin-bottom: 10px;
           border-bottom: 2px solid #e5f3ff;
           padding-bottom: 5px;
+        }
+        .main-text {
+          color: #1f2937;
+          font-size: 16px;
+          line-height: 1.6;
         }
         .services-grid {
           display: grid;
@@ -250,7 +262,7 @@ export const simpleTemplates: SimpleTemplate[] = [
         
         <div class="content">
           <div class="section">
-            <p style="font-size: 16px; line-height: 1.6; color: #374151;">{{description}}</p>
+            <p class="main-text">{{description}}</p>
           </div>
           
           <div class="services-grid">
@@ -389,6 +401,325 @@ export const simpleTemplates: SimpleTemplate[] = [
         <h2 class="simple-subtitle">{{subtitle}}</h2>
         <p class="simple-description">{{description}}</p>
         <div class="simple-phone">Call: {{phone}}</div>
+      </div>
+    `
+  },
+  
+  {
+    id: 'kick-it-california',
+    name: 'Kick It California - Referral Options',
+    description: 'Professional referral flyer with content from README.md - ready to customize',
+    fields: [
+      {
+        id: 'headline',
+        label: 'Main Headline',
+        type: 'text',
+        placeholder: 'Enter main headline',
+        defaultValue: 'Kick It California – Referral Options'
+      },
+      {
+        id: 'sub_headline',
+        label: 'Sub-headline',
+        type: 'text',
+        placeholder: 'Enter sub-headline',
+        defaultValue: 'Easy, flexible ways to connect patients with our free, confidential services.'
+      },
+      {
+        id: 'option1_title',
+        label: 'Option 1 Title',
+        type: 'text',
+        placeholder: 'Option 1 title',
+        defaultValue: 'Option 1: Web-Based Referral'
+      },
+      {
+        id: 'option1_description',
+        label: 'Option 1 Description',
+        type: 'textarea',
+        placeholder: 'Describe option 1',
+        defaultValue: 'Use our simple and secure web portal to refer patients directly. It\'s fast, efficient, and requires no software installation.\n\n• Free, simple online referral form available at kickitca.org\n• No technical integration required\n• Aggregate-level reporting provided\n• Fast and easy implementation'
+      },
+      {
+        id: 'option2_title',
+        label: 'Option 2 Title',
+        type: 'text',
+        placeholder: 'Option 2 title',
+        defaultValue: 'Option 2: Direct Messaging or Standard File Upload'
+      },
+      {
+        id: 'option2_description',
+        label: 'Option 2 Description',
+        type: 'textarea',
+        placeholder: 'Describe option 2',
+        defaultValue: 'Integrate with your existing EMR system. Send referrals via secure direct messaging or a standard file upload (e.g., HL7, CSV).\n\n• Free referral submission via EHR through DIRECT\n• One-way push of referral to Kick It California\n• Option to use Secure File Transfer Protocol (SFTP)\n• Aggregate-level reporting provided'
+      },
+      {
+        id: 'option3_title',
+        label: 'Option 3 Title',
+        type: 'text',
+        placeholder: 'Option 3 title',
+        defaultValue: 'Option 3: Bi-Directional Closed-Loop Referral'
+      },
+      {
+        id: 'option3_description',
+        label: 'Option 3 Description',
+        type: 'textarea',
+        placeholder: 'Describe option 3',
+        defaultValue: 'Our most advanced solution. This API-based integration allows for seamless, bi-directional data exchange, including patient status updates sent back to your EMR.\n\n• $35,000 setup and $5,000 annual maintenance\n• Utilizes standard TCP/IP via VPN tunnels\n• Real-time result messages sent back\n• Streamlined workflow and outcome tracking'
+      },
+      {
+        id: 'cta_text',
+        label: 'Call to Action',
+        type: 'text',
+        placeholder: 'Call to action text',
+        defaultValue: 'Ready to Refer or Learn More?'
+      },
+      {
+        id: 'contact_person',
+        label: 'Contact Person',
+        type: 'text',
+        placeholder: 'Contact person name',
+        defaultValue: 'Carrie Kirby'
+      },
+      {
+        id: 'contact_email',
+        label: 'Contact Email',
+        type: 'email',
+        placeholder: 'Contact email',
+        defaultValue: 'ckirby@health.ucsd.edu'
+      },
+      {
+        id: 'contact_phone',
+        label: 'Contact Phone',
+        type: 'phone',
+        placeholder: 'Contact phone',
+        defaultValue: '800-300-1054'
+      },
+      {
+        id: 'website_url',
+        label: 'Website URL',
+        type: 'url',
+        placeholder: 'Website URL',
+        defaultValue: 'kickitca.org/partners'
+      },
+      {
+        id: 'qr_url',
+        label: 'QR Code URL',
+        type: 'url',
+        placeholder: 'Enter URL for QR code (optional)',
+        defaultValue: 'https://kickitca.org/partners'
+      },
+      {
+        id: 'header_bg_color',
+        label: 'Header Background Color',
+        type: 'color',
+        placeholder: '#1e40af',
+        defaultValue: '#1e40af'
+      },
+      {
+        id: 'header_text_color',
+        label: 'Header Text Color',
+        type: 'color',
+        placeholder: '#ffffff',
+        defaultValue: '#ffffff'
+      },
+      {
+        id: 'accent_color',
+        label: 'Accent Color (headings)',
+        type: 'color',
+        placeholder: '#dc2626',
+        defaultValue: '#dc2626'
+      },
+      {
+        id: 'text_color',
+        label: 'Main Text Color',
+        type: 'color',
+        placeholder: '#1f2937',
+        defaultValue: '#1f2937'
+      }
+    ],
+    htmlTemplate: `
+      <style>
+        .kick-it-flyer {
+          width: 8.5in;
+          height: 11in;
+          padding: 0;
+          margin: 0;
+          font-family: Arial, sans-serif;
+          background: white;
+          position: relative;
+          color: {{text_color}};
+        }
+        .header {
+          background: linear-gradient(135deg, {{header_bg_color}} 0%, {{header_bg_color}} 100%);
+          color: {{header_text_color}};
+          padding: 25px 30px;
+          text-align: center;
+        }
+        .header h1 {
+          font-size: 32px;
+          font-weight: bold;
+          margin: 0 0 8px 0;
+          text-transform: uppercase;
+        }
+        .header h2 {
+          font-size: 18px;
+          font-weight: normal;
+          margin: 0;
+          opacity: 0.95;
+        }
+        .content {
+          padding: 30px;
+        }
+        .option-section {
+          margin-bottom: 30px;
+          padding: 20px;
+          border-left: 4px solid {{accent_color}};
+          background: #fafafa;
+          border-radius: 6px;
+        }
+        .option-title {
+          color: {{accent_color}};
+          font-size: 20px;
+          font-weight: bold;
+          margin-bottom: 12px;
+        }
+        .option-description {
+          font-size: 14px;
+          line-height: 1.6;
+          color: {{text_color}};
+          white-space: pre-line;
+        }
+        .cta-section {
+          text-align: center;
+          margin: 30px 0;
+          padding: 25px;
+          background: {{accent_color}};
+          color: white;
+          border-radius: 8px;
+          font-size: 22px;
+          font-weight: bold;
+        }
+        .contact-section {
+          background: #f8fafc;
+          padding: 20px;
+          border-radius: 8px;
+          border: 1px solid #e2e8f0;
+          margin-bottom: 80px;
+        }
+        .contact-title {
+          color: {{accent_color}};
+          font-size: 18px;
+          font-weight: bold;
+          margin-bottom: 15px;
+          text-align: center;
+        }
+        .contact-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+          text-align: center;
+        }
+        .contact-item {
+          margin-bottom: 8px;
+        }
+        .contact-label {
+          font-weight: bold;
+          color: {{accent_color}};
+          display: block;
+          margin-bottom: 3px;
+        }
+        .qr-section {
+          position: absolute;
+          bottom: 20px;
+          right: 30px;
+          width: 120px;
+          height: 120px;
+          background: white;
+          border: 2px solid {{accent_color}};
+          border-radius: 8px;
+          padding: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        .qr-label {
+          font-size: 10px;
+          color: {{accent_color}};
+          margin-top: 5px;
+          text-align: center;
+        }
+        .footer-logo {
+          position: absolute;
+          bottom: 20px;
+          left: 30px;
+          color: {{accent_color}};
+          font-weight: bold;
+          font-size: 16px;
+        }
+      </style>
+      
+      <div class="kick-it-flyer">
+        <div class="header">
+          <h1>{{headline}}</h1>
+          <h2>{{sub_headline}}</h2>
+        </div>
+        
+        <div class="content">
+          <div class="option-section">
+            <div class="option-title">{{option1_title}}</div>
+            <div class="option-description">{{option1_description}}</div>
+          </div>
+          
+          <div class="option-section">
+            <div class="option-title">{{option2_title}}</div>
+            <div class="option-description">{{option2_description}}</div>
+          </div>
+          
+          <div class="option-section">
+            <div class="option-title">{{option3_title}}</div>
+            <div class="option-description">{{option3_description}}</div>
+          </div>
+          
+          <div class="cta-section">
+            {{cta_text}}
+          </div>
+          
+          <div class="contact-section">
+            <div class="contact-title">Contact Information</div>
+            <div class="contact-grid">
+              <div>
+                <div class="contact-item">
+                  <span class="contact-label">Contact:</span>
+                  <span>{{contact_person}}</span>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-label">Email:</span>
+                  <span>{{contact_email}}</span>
+                </div>
+              </div>
+              <div>
+                <div class="contact-item">
+                  <span class="contact-label">Phone:</span>
+                  <span>{{contact_phone}}</span>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-label">Website:</span>
+                  <span>{{website_url}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-logo">
+          kickitca.org
+        </div>
+        
+        <div class="qr-section">
+          {{qr_code}}
+          <div class="qr-label">Scan for More Info</div>
+        </div>
       </div>
     `
   }

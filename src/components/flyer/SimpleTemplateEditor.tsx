@@ -169,9 +169,9 @@ export function SimpleTemplateEditor({ template }: SimpleTemplateEditorProps) {
         <p className="text-sm text-gray-600 mb-6">{template.description}</p>
 
         <div className="space-y-4">
-          {template.fields.slice(0, -5).map((field) => (
+          {template.fields.filter(field => field.type !== 'color' && field.id !== 'qr_url').map((field) => (
             <div key={field.id}>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-900 mb-1">
                 {field.label}
               </label>
               {field.type === 'textarea' ? (
@@ -214,9 +214,9 @@ export function SimpleTemplateEditor({ template }: SimpleTemplateEditorProps) {
           <div className="mt-8 pt-6 border-t border-gray-200">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Styling & QR Code</h3>
             <div className="space-y-4">
-              {template.fields.slice(-5).map((field) => (
+              {template.fields.filter(field => field.type === 'color' || field.id === 'qr_url').map((field) => (
                 <div key={field.id}>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-gray-900 mb-1">
                     {field.label}
                   </label>
                   {field.type === 'color' ? (
