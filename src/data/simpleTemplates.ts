@@ -512,29 +512,29 @@ export const simpleTemplates: SimpleTemplate[] = [
         id: 'header_bg_color',
         label: 'Header Background Color',
         type: 'color',
-        placeholder: '#2563eb',
-        defaultValue: '#2563eb'
+        placeholder: '#ffffff',
+        defaultValue: '#ffffff'
       },
       {
         id: 'header_text_color',
         label: 'Header Text Color',
         type: 'color',
-        placeholder: '#ffffff',
-        defaultValue: '#ffffff'
+        placeholder: '#2563eb',
+        defaultValue: '#2563eb'
       },
       {
         id: 'accent_color',
         label: 'Accent Color (headings)',
         type: 'color',
-        placeholder: '#ea580c',
-        defaultValue: '#ea580c'
+        placeholder: '#f97316',
+        defaultValue: '#f97316'
       },
       {
         id: 'text_color',
         label: 'Main Text Color',
         type: 'color',
-        placeholder: '#1f2937',
-        defaultValue: '#1f2937'
+        placeholder: '#000000',
+        defaultValue: '#000000'
       }
     ],
     htmlTemplate: `
@@ -552,21 +552,27 @@ export const simpleTemplates: SimpleTemplate[] = [
         .header {
           background: {{header_bg_color}};
           color: {{header_text_color}};
-          padding: 30px;
+          padding: 25px 30px;
           text-align: center;
+          border-bottom: 3px solid {{accent_color}};
+        }
+        .logo {
+          max-width: 300px;
+          height: auto;
+          margin-bottom: 15px;
         }
         .header h1 {
-          font-size: 36px;
+          font-size: 32px;
           font-weight: bold;
-          margin: 0 0 10px 0;
+          margin: 0 0 8px 0;
           text-transform: uppercase;
           letter-spacing: 1px;
         }
         .header h2 {
-          font-size: 20px;
+          font-size: 18px;
           font-weight: normal;
           margin: 0;
-          opacity: 0.95;
+          color: #666;
         }
         .content {
           padding: 25px 30px 140px 30px;
@@ -668,6 +674,7 @@ export const simpleTemplates: SimpleTemplate[] = [
       
       <div class="kick-it-flyer">
         <div class="header">
+          <img src="https://www.kickitca-wp.ucsd.edu/wp-content/uploads/2021/06/Primary.png" alt="Kick It California Logo" class="logo" />
           <h1>{{headline}}</h1>
           <h2>{{sub_headline}}</h2>
         </div>

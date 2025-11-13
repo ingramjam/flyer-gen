@@ -158,7 +158,7 @@ export function SimpleTemplateEditor({ template }: SimpleTemplateEditorProps) {
       {/* Editor Panel */}
       <div className="w-1/3 bg-white shadow-lg p-6 overflow-y-auto">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold text-gray-900">{template.name}</h2>
+          <h2 className="text-xl font-bold text-black">{template.name}</h2>
           <Link 
             href="/templates" 
             className="text-sm text-blue-600 hover:text-blue-700"
@@ -171,7 +171,7 @@ export function SimpleTemplateEditor({ template }: SimpleTemplateEditorProps) {
         <div className="space-y-4">
           {template.fields.filter(field => field.type !== 'color' && field.id !== 'qr_url').map((field) => (
             <div key={field.id}>
-              <label className="block text-sm font-medium text-gray-900 mb-1">
+              <label className="block text-sm font-medium text-black mb-1">
                 {field.label}
               </label>
               {field.type === 'textarea' ? (
@@ -212,11 +212,11 @@ export function SimpleTemplateEditor({ template }: SimpleTemplateEditorProps) {
           
           {/* Styling Options */}
           <div className="mt-8 pt-6 border-t border-gray-200">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Styling & QR Code</h3>
+            <h3 className="text-lg font-semibold text-black mb-4">Styling & QR Code</h3>
             <div className="space-y-4">
               {template.fields.filter(field => field.type === 'color' || field.id === 'qr_url').map((field) => (
                 <div key={field.id}>
-                  <label className="block text-sm font-medium text-gray-900 mb-1">
+                  <label className="block text-sm font-medium text-black mb-1">
                     {field.label}
                   </label>
                   {field.type === 'color' ? (
