@@ -7,7 +7,8 @@ export default function TemplatesPage() {
   const handleTemplateSelect = (templateId: string) => {
     // Store selected template in localStorage for the simple editor
     localStorage.setItem('selectedSimpleTemplate', templateId);
-    window.location.href = '/editor';
+    // Use Next.js router for proper navigation with basePath
+    window.location.href = `${process.env.NODE_ENV === 'production' ? '/template-builder' : ''}/editor`;
   };
 
   return (

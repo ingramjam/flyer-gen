@@ -564,10 +564,12 @@ export const simpleTemplates: SimpleTemplate[] = [
               .border-brand-orange { border-color: #f26722; }
               .bg-brand-blue { background-color: #003b5c; }
               
-              /* Custom styles for 8.5x11 layout */
+              /* Custom styles for exact 8.5x11 layout - 612x792px at 72 DPI */
               .flyer-page {
-                  width: 8.5in;
-                  height: 11in;
+                  width: 612px;
+                  height: 792px;
+                  max-width: 612px;
+                  max-height: 792px;
                   margin-top: 2rem;
                   margin-bottom: 2rem;
                   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -595,8 +597,10 @@ export const simpleTemplates: SimpleTemplate[] = [
                       print-color-adjust: exact;
                   }
                   .flyer-page {
-                      width: 100%;
-                      height: 100%;
+                      width: 8.5in !important;
+                      height: 11in !important;
+                      max-width: 8.5in !important;
+                      max-height: 11in !important;
                       margin: 0;
                       box-shadow: none;
                       border-radius: 0;
