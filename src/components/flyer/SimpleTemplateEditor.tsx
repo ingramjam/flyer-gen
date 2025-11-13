@@ -84,9 +84,9 @@ export function SimpleTemplateEditor({ template }: SimpleTemplateEditorProps) {
 
     // Add QR code if available
     if (qrCodeDataUrl) {
-      html = html.replace('{{qr_code}}', `<img src="${qrCodeDataUrl}" alt="QR Code" style="width: 100px; height: 100px;" />`);
+      html = html.replace('{{qr_code}}', `<img src="${qrCodeDataUrl}" alt="QR Code for More Info" class="w-32 h-32"/>`);
     } else {
-      html = html.replace('{{qr_code}}', '<div style="width: 100px; height: 100px; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #666; text-align: center;">QR Code<br/>Enter URL</div>');
+      html = html.replace('{{qr_code}}', '<div class="w-32 h-32 border-2 border-dashed border-gray-400 flex items-center justify-center text-xs text-gray-500 text-center">QR Code<br/>Enter URL</div>');
     }
     
     setPreviewHtml(html);
