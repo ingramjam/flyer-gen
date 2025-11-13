@@ -512,8 +512,8 @@ export const simpleTemplates: SimpleTemplate[] = [
         id: 'header_bg_color',
         label: 'Header Background Color',
         type: 'color',
-        placeholder: '#1e40af',
-        defaultValue: '#1e40af'
+        placeholder: '#2563eb',
+        defaultValue: '#2563eb'
       },
       {
         id: 'header_text_color',
@@ -526,8 +526,8 @@ export const simpleTemplates: SimpleTemplate[] = [
         id: 'accent_color',
         label: 'Accent Color (headings)',
         type: 'color',
-        placeholder: '#dc2626',
-        defaultValue: '#dc2626'
+        placeholder: '#ea580c',
+        defaultValue: '#ea580c'
       },
       {
         id: 'text_color',
@@ -550,53 +550,54 @@ export const simpleTemplates: SimpleTemplate[] = [
           color: {{text_color}};
         }
         .header {
-          background: linear-gradient(135deg, {{header_bg_color}} 0%, {{header_bg_color}} 100%);
+          background: {{header_bg_color}};
           color: {{header_text_color}};
-          padding: 25px 30px;
+          padding: 30px;
           text-align: center;
         }
         .header h1 {
-          font-size: 32px;
+          font-size: 36px;
           font-weight: bold;
-          margin: 0 0 8px 0;
+          margin: 0 0 10px 0;
           text-transform: uppercase;
+          letter-spacing: 1px;
         }
         .header h2 {
-          font-size: 18px;
+          font-size: 20px;
           font-weight: normal;
           margin: 0;
           opacity: 0.95;
         }
         .content {
-          padding: 30px;
+          padding: 25px 30px 140px 30px;
         }
         .option-section {
-          margin-bottom: 30px;
-          padding: 20px;
-          border-left: 4px solid {{accent_color}};
+          margin-bottom: 25px;
+          padding: 18px;
+          border-left: 5px solid {{accent_color}};
           background: #fafafa;
           border-radius: 6px;
         }
         .option-title {
           color: {{accent_color}};
-          font-size: 20px;
+          font-size: 22px;
           font-weight: bold;
-          margin-bottom: 12px;
+          margin-bottom: 10px;
         }
         .option-description {
-          font-size: 14px;
-          line-height: 1.6;
+          font-size: 16px;
+          line-height: 1.5;
           color: {{text_color}};
           white-space: pre-line;
         }
         .cta-section {
           text-align: center;
-          margin: 30px 0;
-          padding: 25px;
+          margin: 25px 0;
+          padding: 20px;
           background: {{accent_color}};
           color: white;
           border-radius: 8px;
-          font-size: 22px;
+          font-size: 24px;
           font-weight: bold;
         }
         .contact-section {
@@ -604,11 +605,11 @@ export const simpleTemplates: SimpleTemplate[] = [
           padding: 20px;
           border-radius: 8px;
           border: 1px solid #e2e8f0;
-          margin-bottom: 80px;
+          margin: 20px 0;
         }
         .contact-title {
           color: {{accent_color}};
-          font-size: 18px;
+          font-size: 20px;
           font-weight: bold;
           margin-bottom: 15px;
           text-align: center;
@@ -616,46 +617,52 @@ export const simpleTemplates: SimpleTemplate[] = [
         .contact-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 20px;
+          gap: 25px;
           text-align: center;
         }
         .contact-item {
-          margin-bottom: 8px;
+          margin-bottom: 10px;
         }
         .contact-label {
           font-weight: bold;
           color: {{accent_color}};
           display: block;
-          margin-bottom: 3px;
+          margin-bottom: 4px;
+          font-size: 16px;
+        }
+        .contact-value {
+          font-size: 16px;
+          color: {{text_color}};
         }
         .qr-section {
           position: absolute;
-          bottom: 20px;
+          bottom: 30px;
           right: 30px;
-          width: 120px;
-          height: 120px;
+          width: 100px;
+          height: 100px;
           background: white;
           border: 2px solid {{accent_color}};
           border-radius: 8px;
-          padding: 10px;
+          padding: 8px;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
         }
         .qr-label {
-          font-size: 10px;
+          font-size: 9px;
           color: {{accent_color}};
-          margin-top: 5px;
+          margin-top: 4px;
           text-align: center;
+          font-weight: bold;
         }
         .footer-logo {
           position: absolute;
-          bottom: 20px;
+          bottom: 30px;
           left: 30px;
           color: {{accent_color}};
           font-weight: bold;
-          font-size: 16px;
+          font-size: 18px;
         }
       </style>
       
@@ -691,21 +698,21 @@ export const simpleTemplates: SimpleTemplate[] = [
               <div>
                 <div class="contact-item">
                   <span class="contact-label">Contact:</span>
-                  <span>{{contact_person}}</span>
+                  <div class="contact-value">{{contact_person}}</div>
                 </div>
                 <div class="contact-item">
                   <span class="contact-label">Email:</span>
-                  <span>{{contact_email}}</span>
+                  <div class="contact-value">{{contact_email}}</div>
                 </div>
               </div>
               <div>
                 <div class="contact-item">
                   <span class="contact-label">Phone:</span>
-                  <span>{{contact_phone}}</span>
+                  <div class="contact-value">{{contact_phone}}</div>
                 </div>
                 <div class="contact-item">
                   <span class="contact-label">Website:</span>
-                  <span>{{website_url}}</span>
+                  <div class="contact-value">{{website_url}}</div>
                 </div>
               </div>
             </div>
