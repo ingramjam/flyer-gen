@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import QRCode from 'qrcode';
 
 interface TemplateField {
@@ -158,12 +159,12 @@ export function SimpleTemplateEditor({ template }: SimpleTemplateEditorProps) {
       <div className="w-1/3 bg-white shadow-lg p-6 overflow-y-auto">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold text-gray-900">{template.name}</h2>
-          <a 
+          <Link 
             href="/templates" 
             className="text-sm text-blue-600 hover:text-blue-700"
           >
             ← Back to Templates
-          </a>
+          </Link>
         </div>
         <p className="text-sm text-gray-600 mb-6">{template.description}</p>
 

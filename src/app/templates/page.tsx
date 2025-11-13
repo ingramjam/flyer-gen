@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { simpleTemplates } from '@/data/simpleTemplates';
 
 export default function TemplatesPage() {
@@ -52,12 +53,12 @@ export default function TemplatesPage() {
         </div>
         
         <div className="mt-12 text-center">
-          <a
+          <Link
             href="/editor"
             className="inline-block bg-gray-800 text-white py-3 px-6 rounded-lg hover:bg-gray-900"
           >
             Start with Blank Canvas
-          </a>
+          </Link>
         </div>
       </div>
     </div>
