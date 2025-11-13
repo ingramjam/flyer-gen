@@ -537,207 +537,193 @@ export const simpleTemplates: SimpleTemplate[] = [
         defaultValue: '#000000'
       }
     ],
-    htmlTemplate: `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Kick It California - Referral Options</title>
-          <!-- Import Tailwind CSS -->
-          <script src="https://cdn.tailwindcss.com"></script>
-          <!-- Import Google Font (Inter) -->
-          <link rel="preconnect" href="https://fonts.googleapis.com">
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-          
-          <style>
-              /* Custom styles to match the PDF */
-              body {
-                  font-family: 'Inter', sans-serif;
-                  background-color: #f3f4f6; /* bg-gray-100 */
-              }
-              
-              /* Define the custom colors from the PDF */
-              .text-brand-blue { color: #003b5c; }
-              .text-brand-orange { color: #f26722; }
-              .border-brand-orange { border-color: #f26722; }
-              .bg-brand-blue { background-color: #003b5c; }
-              
-              /* Custom styles to match the PDF */
-              body {
-                  font-family: 'Inter', sans-serif;
-                  background-color: #f3f4f6; /* bg-gray-100 */
-              }
-              
-              /* Define the custom colors from the PDF */
-              .text-brand-blue { color: #003b5c; }
-              .text-brand-orange { color: #f26722; }
-              .border-brand-orange { border-color: #f26722; }
-              .bg-brand-blue { background-color: #003b5c; }
-              
-              /* Custom styles for 8.5x11 layout */
-              .flyer-page {
-                  width: 8.5in;
-                  height: 11in;
-                  margin-top: 2rem;
-                  margin-bottom: 2rem;
-                  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-                  
-                  /* Flex layout to push footer down */
-                  display: flex;
-                  flex-direction: column;
-                  box-sizing: border-box; /* Ensure padding is included in height/width */
-              }
+    htmlTemplate: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kick It California - Referral Options</title>
+    <!-- Import Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Import Google Font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom styles to match the PDF */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* bg-gray-100 */
+        }
+        
+        /* Define the custom colors from the PDF */
+        .text-brand-blue { color: #003b5c; }
+        .text-brand-orange { color: #f26722; }
+        .border-brand-orange { border-color: #f26722; }
+        .bg-brand-blue { background-color: #003b5c; }
+        
+        /* Custom styles for 8.5x11 layout */
+        .flyer-page {
+            width: 8.5in;
+            height: 11in;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            
+            /* Flex layout to push footer down */
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box; /* Ensure padding is included in height/width */
+        }
 
-              main {
-                  flex-grow: 1; /* This will push the footer to the bottom */
-              }
+        main {
+            flex-grow: 1; /* This will push the footer to the bottom */
+        }
 
-              footer {
-                  flex-shrink: 0;
-              }
+        footer {
+            flex-shrink: 0;
+        }
 
-              @media print {
-                  body {
-                      background-color: #ffffff !important;
-                      margin: 0;
-                      padding: 0;
-                      -webkit-print-color-adjust: exact;
-                      print-color-adjust: exact;
-                  }
-                  .flyer-page {
-                      width: 100%;
-                      height: 100%;
-                      margin: 0;
-                      box-shadow: none;
-                      border-radius: 0;
-                      border: none;
-                      
-                      /* Re-apply padding for print content */
-                      /* p-12 is 3rem (48px), which is ~0.5in. p-8 is 2rem (32px) */
-                      /* We'll use p-12's value for a 0.5in margin */
-                      padding: 3rem !important; 
-                  }
-                  
-                  /* Hide body scrollbars during print */
-                  body, html {
-                      overflow: hidden;
-                  }
-              }
-          </style>
-      </head>
-      <body class="bg-gray-100">
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                margin: 0;
+                padding: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .flyer-page {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                box-shadow: none;
+                border-radius: 0;
+                border: none;
+                
+                /* Re-apply padding for print content */
+                /* p-12 is 3rem (48px), which is ~0.5in. p-8 is 2rem (32px) */
+                /* We'll use p-12's value for a 0.5in margin */
+                padding: 3rem !important; 
+            }
+            
+            /* Hide body scrollbars during print */
+            body, html {
+                overflow: hidden;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
 
-          <!-- Flyer Container -->
-          <div class="flyer-page mx-auto bg-white p-8 md:p-12 rounded-lg shadow-2xl">
-              
-              <!-- Header Section -->
-              <header class="flex flex-col sm:flex-row justify-between sm:items-center pb-6 border-b-4" style="border-color: #f26722;">
-                  <div>
-                      <!-- Logo from the original HTML file -->
-                      <img src="https://www.kickitca-wp.ucsd.edu/wp-content/uploads/2021/06/Primary.png" 
-                           alt="Kick It California Logo" 
-                           class="h-16 w-auto"
-                           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                      <!-- Fallback text for logo -->
-                      <div style="display: none;" class="text-2xl font-bold text-brand-blue">KICK IT California</div>
-                  </div>
-                  <!-- Title from original HTML, styled like PDF -->
-                  <h1 class="text-3xl md:text-4xl font-extrabold text-brand-blue mt-4 sm:mt-0 text-left sm:text-right" style="color: #003b5c;">
-                      {{headline}}
-                  </h1>
-              </header>
+    <!-- Flyer Container -->
+    <div class="flyer-page mx-auto bg-white p-8 md:p-12 rounded-lg shadow-2xl">
+        
+        <!-- Header Section -->
+        <header class="flex flex-col sm:flex-row justify-between sm:items-center pb-6 border-b-4" style="border-color: #f26722;">
+            <div>
+                <!-- Logo from the original HTML file -->
+                <img src="https://www.kickitca-wp.ucsd.edu/wp-content/uploads/2021/06/Primary.png" 
+                     alt="Kick It California Logo" 
+                     class="h-16 w-auto"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <!-- Fallback text for logo -->
+                <div style="display: none;" class="text-2xl font-bold text-brand-blue">KICK IT California</div>
+            </div>
+            <!-- Title from original HTML, styled like PDF -->
+            <h1 class="text-3xl md:text-4xl font-extrabold text-brand-blue mt-4 sm:mt-0 text-left sm:text-right" style="color: #003b5c;">
+                {{headline}}
+            </h1>
+        </header>
 
-              <!-- Main Content Grid -->
-              <main class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 py-8 md:py-10">
-                  
-                  <!-- Left Column: Content from original HTML -->
-                  <div class="space-y-6">
-                      
-                      <h2 class="text-2xl font-bold text-brand-blue mb-4" style="color: #003b5c;">{{sub_headline}}</h2>
+        <!-- Main Content Grid -->
+        <main class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 py-8 md:py-10">
+            
+            <!-- Left Column: Content from original HTML -->
+            <div class="space-y-6">
+                
+                <h2 class="text-2xl font-bold text-brand-blue mb-4" style="color: #003b5c;">{{sub_headline}}</h2>
 
-                      <!-- Option 1 -->
-                      <section class="bg-gray-50 p-5 rounded-lg border border-gray-200">
-                          <h3 class="text-xl font-bold text-brand-orange mb-3" style="color: #f26722;">{{option1_title}}</h3>
-                          <p class="text-gray-700 leading-relaxed whitespace-pre-line">{{option1_description}}</p>
-                      </section>
+                <!-- Option 1 -->
+                <section class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-bold text-brand-orange mb-3" style="color: #f26722;">{{option1_title}}</h3>
+                    <p class="text-gray-700 leading-relaxed whitespace-pre-line">{{option1_description}}</p>
+                </section>
 
-                      <!-- Option 2 -->
-                      <section class="bg-gray-50 p-5 rounded-lg border border-gray-200">
-                          <h3 class="text-xl font-bold text-brand-orange mb-3" style="color: #f26722;">{{option2_title}}</h3>
-                          <p class="text-gray-700 leading-relaxed whitespace-pre-line">{{option2_description}}</p>
-                      </section>
+                <!-- Option 2 -->
+                <section class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-bold text-brand-orange mb-3" style="color: #f26722;">{{option2_title}}</h3>
+                    <p class="text-gray-700 leading-relaxed whitespace-pre-line">{{option2_description}}</p>
+                </section>
 
-                      <!-- Option 3 -->
-                      <section class="bg-gray-50 p-5 rounded-lg border border-gray-200">
-                          <h3 class="text-xl font-bold text-brand-orange mb-3" style="color: #f26722;">{{option3_title}}</h3>
-                          <p class="text-gray-700 leading-relaxed whitespace-pre-line">{{option3_description}}</p>
-                      </section>
-                  </div>
+                <!-- Option 3 -->
+                <section class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-bold text-brand-orange mb-3" style="color: #f26722;">{{option3_title}}</h3>
+                    <p class="text-gray-700 leading-relaxed whitespace-pre-line">{{option3_description}}</p>
+                </section>
+            </div>
 
-                  <!-- Right Column: Contact & QR Code -->
-                  <div class="space-y-8">
+            <!-- Right Column: Contact & QR Code -->
+            <div class="space-y-8">
 
-                      <!-- CTA from original HTML -->
-                      <section class="bg-brand-orange text-white p-6 rounded-lg shadow-lg text-center" style="background-color: #f26722;">
-                          <h2 class="text-2xl font-bold">{{cta_text}}</h2>
-                      </section>
+                <!-- CTA from original HTML -->
+                <section class="bg-brand-orange text-white p-6 rounded-lg shadow-lg text-center" style="background-color: #f26722;">
+                    <h2 class="text-2xl font-bold">{{cta_text}}</h2>
+                </section>
 
-                      <!-- Let's Connect Section from PDF -->
-                      <section class="bg-brand-blue text-white p-6 rounded-lg shadow-lg" style="background-color: #003b5c;">
-                          <h2 class="text-2xl font-bold text-white mb-5 text-center">LET'S CONNECT</h2>
-                          <div class="space-y-3 text-lg">
-                              <p class="flex items-center">
-                                  <span class="font-semibold w-24">Contact:</span>
-                                  <span>{{contact_person}}</span>
-                              </p>
-                              <p class="flex items-center">
-                                  <span class="font-semibold w-24">Email:</span>
-                                  <a href="mailto:{{contact_email}}" class="hover:underline break-all">{{contact_email}}</a>
-                              </p>
-                              <p class="flex items-center">
-                                  <span class="font-semibold w-24">Phone:</span>
-                                  <span>{{contact_phone}}</span>
-                              </p>
-                          </div>
-                      </section>
+                <!-- Let's Connect Section from PDF -->
+                <section class="bg-brand-blue text-white p-6 rounded-lg shadow-lg" style="background-color: #003b5c;">
+                    <h2 class="text-2xl font-bold text-white mb-5 text-center">LET'S CONNECT</h2>
+                    <div class="space-y-3 text-lg">
+                        <p class="flex items-center">
+                            <span class="font-semibold w-24">Contact:</span>
+                            <span>{{contact_person}}</span>
+                        </p>
+                        <p class="flex items-center">
+                            <span class="font-semibold w-24">Email:</span>
+                            <a href="mailto:{{contact_email}}" class="hover:underline break-all">{{contact_email}}</a>
+                        </p>
+                        <p class="flex items-center">
+                            <span class="font-semibold w-24">Phone:</span>
+                            <span>{{contact_phone}}</span>
+                        </p>
+                    </div>
+                </section>
 
-                      <!-- QR Code Section from original HTML -->
-                      <section class="bg-white p-4 rounded-lg border-2 border-brand-orange flex flex-col items-center" style="border-color: #f26722;">
-                          {{qr_code}}
-                          <div class="text-brand-orange font-bold mt-2" style="color: #f26722;">Scan for More Info</div>
-                      </section>
+                <!-- QR Code Section from original HTML -->
+                <section class="bg-white p-4 rounded-lg border-2 border-brand-orange flex flex-col items-center" style="border-color: #f26722;">
+                    {{qr_code}}
+                    <div class="text-brand-orange font-bold mt-2" style="color: #f26722;">Scan for More Info</div>
+                </section>
 
-                  </div>
+            </div>
 
-              </main>
+        </main>
 
-              <!-- Footer Section -->
-              <footer class="border-t-2 border-gray-200 pt-8 mt-8 flex flex-col md:flex-row justify-between md:items-center space-y-6 md:space-y-0">
-                  <div>
-                      <a href="https://kickitca.org" target="_blank" rel="noopener noreferrer" class="text-3xl font-extrabold text-brand-blue hover:text-brand-orange transition-colors" style="color: #003b5c;">
-                          KICKITCA.ORG
-                      </a>
-                  </div>
-                  
-                  <div class="text-left md:text-right">
-                      <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">PHONE NUMBERS</h4>
-                      <div class="space-y-1">
-                          <p class="text-lg font-semibold text-gray-800">
-                              <span class="font-normal text-gray-600">ENGLISH:</span> 1-800-300-8086
-                          </p>
-                          <p class="text-lg font-semibold text-gray-800">
-                              <span class="font-normal text-gray-600">SPANISH:</span> 1-800-600-8191
-                          </p>
-                      </div>
-                  </div>
-              </footer>
+        <!-- Footer Section -->
+        <footer class="border-t-2 border-gray-200 pt-8 mt-8 flex flex-col md:flex-row justify-between md:items-center space-y-6 md:space-y-0">
+            <div>
+                <a href="https://kickitca.org" target="_blank" rel="noopener noreferrer" class="text-3xl font-extrabold text-brand-blue hover:text-brand-orange transition-colors" style="color: #003b5c;">
+                    KICKITCA.ORG
+                </a>
+            </div>
+            
+            <div class="text-left md:text-right">
+                <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">PHONE NUMBERS</h4>
+                <div class="space-y-1">
+                    <p class="text-lg font-semibold text-gray-800">
+                        <span class="font-normal text-gray-600">ENGLISH:</span> 1-800-300-8086
+                    </p>
+                    <p class="text-lg font-semibold text-gray-800">
+                        <span class="font-normal text-gray-600">SPANISH:</span> 1-800-600-8191
+                    </p>
+                </div>
+            </div>
+        </footer>
 
-          </div>
+    </div>
 
-      </body>
-      </html>
-    `
+</body>
+</html>`
   }
 ];
